@@ -6,12 +6,13 @@
 /*   By: Vincent < >                                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:50:40 by Vincent           #+#    #+#             */
-/*   Updated: 2022/07/29 23:09:40 by Vincent          ###   ########.fr       */
+/*   Updated: 2022/07/30 00:32:59 by Vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_H
 # define GAME_H
+# include "win_test.h"
 # include <stdbool.h>
 # include <stdlib.h>
 
@@ -49,20 +50,28 @@ bool	is_draw(char (*grid)[6][7])
 
 bool	player_won(char (*grid)[6][7], int last_y, int last_x)
 {
-
+	if (win_vertical(grid, last_y, last_x))
+		return (true);
+	if (win_horizontal(grid, last_y, last_x))
+		return (true);
+	if (win_diagonal_slash(grid, last_y, last_x))
+		return (true);
+	if (win_diagonal_anti_slash(grid, last_y, last_x))
+		return (true);
+	return (false);
 }
 
 bool	is_game_over(char (*grid)[6][7], char player, int last_y, int last_x)
 {
 	if (player_won(grid, last_y, last_x))
 	{
-		printf("Player %c won the game!", player);
+		printf("Player %c won the game!\n", player);
 		exit(0);
 	}
 	if (is_draw(grid))
 	{
 
-		printf("Draw.");
+		printf("Draw.\n");
 		exit(0);
 	}
 	return (false);

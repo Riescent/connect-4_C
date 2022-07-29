@@ -6,7 +6,7 @@
 /*   By: Vincent < >                                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:34:22 by Vincent           #+#    #+#             */
-/*   Updated: 2022/07/29 23:06:46 by Vincent          ###   ########.fr       */
+/*   Updated: 2022/07/30 00:32:18 by Vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ int	main(void)
 	{
 		play(&grid, PLAYER_X, &last_y, &last_x);
 		print_grid(&grid);
-		is_game_over(&grid, PLAYER_X, &last_y, &last_x);
+		is_game_over(&grid, PLAYER_X, last_y, last_x);
 		play(&grid, PLAYER_O, &last_y, &last_x);
 		print_grid(&grid);
-		is_game_over(&grid, PLAYER_O, &last_y, &last_x);
+		is_game_over(&grid, PLAYER_O, last_y, last_x);
 	}
 }
