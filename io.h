@@ -52,12 +52,19 @@ int	get_int(const char *print)
 	return (return_integer);
 }
 
-void	get_user_input(char player)
+int	get_user_input(char player)
 {
 	char	print[23];
+	int	return_value;
 
 	sprintf(&print, "It is player %c's turn", player);
-	return (get_int
+	return_value = get_int(&print);
+	while (return_value < 1 || return_value > 7)
+	{
+		printf("Needs to be between 1 and 7\n");
+		return_value = get_int(&print);
+	}
+	return (return_value);
 }
 
 #endif
