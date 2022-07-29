@@ -6,7 +6,7 @@
 /*   By: Vincent < >                                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:50:40 by Vincent           #+#    #+#             */
-/*   Updated: 2022/07/29 22:42:23 by Vincent          ###   ########.fr       */
+/*   Updated: 2022/07/29 22:48:05 by Vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ bool	is_draw(char (*grid)[6][7])
 	return (false);
 }
 
-char	player_won(char (*grid)[6][7], last_played_y, last_played_x)
+char	player_won(char (*grid)[6][7], int last_played_y, int last_played_x)
 {
 
 }

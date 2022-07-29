@@ -6,7 +6,7 @@
 /*   By: Vincent < >                                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:34:14 by Vincent           #+#    #+#             */
-/*   Updated: 2022/07/29 22:27:11 by Vincent          ###   ########.fr       */
+/*   Updated: 2022/07/29 22:49:44 by Vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	get_int(const char *print)
 	return (return_integer);
 }
 
-int	get_user_input(char player)
+int	get_user_input(char player, int *last_y, int *last_x)
 {
 	char	print[24];
 	int		return_value;

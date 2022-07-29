@@ -6,7 +6,7 @@
 /*   By: Vincent < >                                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:34:22 by Vincent           #+#    #+#             */
-/*   Updated: 2022/07/29 22:40:48 by Vincent          ###   ########.fr       */
+/*   Updated: 2022/07/29 22:50:25 by Vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,18 @@ void	create_grid(char (*grid)[6][7])
 int	main(void)
 {
 	char	grid[6][7];
+	int		last_y;
+	int		last_x;
 
 	create_grid(&grid);
+	print_grid(&grid);
 	while (1)
 	{
-		print_grid(&grid);
 		play(&grid, 'X');
 		print_grid(&grid);
 		is_game_over(&grid);
 		play(&grid, 'O');
+		print_grid(&grid);
 		is_game_over(&grid);
 	}
 }
