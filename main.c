@@ -6,12 +6,14 @@
 /*   By: Vincent < >                                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:34:22 by Vincent           #+#    #+#             */
-/*   Updated: 2022/07/29 22:50:25 by Vincent          ###   ########.fr       */
+/*   Updated: 2022/07/29 23:06:46 by Vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "io.h"
 #include "game.h"
+#define PLAYER_X 'X'
+#define PLAYER_O 'O'
 
 void	create_grid(char (*grid)[6][7])
 {
@@ -42,11 +44,11 @@ int	main(void)
 	print_grid(&grid);
 	while (1)
 	{
-		play(&grid, 'X');
+		play(&grid, PLAYER_X, &last_y, &last_x);
 		print_grid(&grid);
-		is_game_over(&grid);
-		play(&grid, 'O');
+		is_game_over(&grid, PLAYER_X, &last_y, &last_x);
+		play(&grid, PLAYER_O, &last_y, &last_x);
 		print_grid(&grid);
-		is_game_over(&grid);
+		is_game_over(&grid, PLAYER_O, &last_y, &last_x);
 	}
 }
