@@ -6,7 +6,7 @@
 /*   By: ****** <************************>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:50:40 by ******            #+#    #+#             */
-/*   Updated: 2022/07/30 16:20:34 by ******           ###   ########.fr       */
+/*   Updated: 2022/07/30 16:36:07 by ******           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,10 @@
 # include <stdbool.h>
 # include <stdlib.h>
 
-void	play(char (*grid)[6][7], char player, int *last_y, int *last_x)
+int	animate(char (*grid)[6][7], char player, int user_input)
 {
-	int	user_input;
 	int	counter;
 
-	user_input = get_user_input(player);
-	if ((*grid)[0][user_input] != ' ')
-	{
-		printf_center("Column is full, try another.\n");
-		play(grid, player, last_y, last_x);
-	}
 	counter = 0;
 	while (counter < 6)
 	{
