@@ -34,17 +34,35 @@ void	play(char (*grid)[6][7], char player, int *last_y, int *last_x)
 		print_grid(grid);
 		if (counter == 5)
 		{
-			*last_y = counter;
+			return (counter);
 			break ;
 		}
 		else if ((*grid)[counter + 1][user_input] != ' ')
 		{
-			*last_y = counter;
+			return (counter);
 			break ;
 		}
 		usleep(50000);
 		(*grid)[counter][user_input] = ' ';
 		counter++;
+	}
+	return (-1);
+}
+
+void	play(char (*grid)[6][7], char player, int *last_y, int *last_x)
+{
+	int	user_input;
+
+	user_input = get_user_input(player);
+	if ((*grid)[0][user_input] != ' ')
+	{
+		printf_center("Column is full, try another.\n");
+		play(grid, player, last_y, last_x);
+	}
+	*last_y = animate(grid, player, user_input);
+	if (*last_y == -1)
+	{
+		printf("ERROR line %i", __LINE__);
 	}
 	*last_x = user_input;
 }
