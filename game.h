@@ -6,7 +6,7 @@
 /*   By: ****** <************************>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:50:40 by ******            #+#    #+#             */
-/*   Updated: 2022/07/30 12:34:11 by ******           ###   ########.fr       */
+/*   Updated: 2022/07/30 16:20:34 by ******           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,31 @@ void	play(char (*grid)[6][7], char player, int *last_y, int *last_x)
 	int	counter;
 
 	user_input = get_user_input(player);
-	counter = 5;
-	while (counter >= 0)
+	if ((*grid)[0][user_input] != ' ')
 	{
-		if ((*grid)[counter][user_input] == ' ')
-		{
-			(*grid)[counter][user_input] = player;
-			*last_x = user_input;
-			*last_y = counter;
-			return ;
-		}
-		counter--;
+		printf_center("Column is full, try another.\n");
+		play(grid, player, last_y, last_x);
 	}
-	printf_center("Column is full, try another.\n");
-	play(grid, player, last_y, last_x);
+	counter = 0;
+	while (counter < 6)
+	{
+		(*grid)[counter][user_input] = player;
+		print_grid(grid);
+		if (counter == 5)
+		{
+			*last_y = counter;
+			break ;
+		}
+		else if ((*grid)[counter + 1][user_input] != ' ')
+		{
+			*last_y = counter;
+			break ;
+		}
+		usleep(50000);
+		(*grid)[counter][user_input] = ' ';
+		counter++;
+	}
+	*last_x = user_input;
 }
 
 bool	is_draw(char (*grid)[6][7])

@@ -6,7 +6,7 @@
 /*   By: ****** <************************>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:34:14 by ******            #+#    #+#             */
-/*   Updated: 2022/07/30 12:37:24 by ******           ###   ########.fr       */
+/*   Updated: 2022/07/30 12:42:31 by ******           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,19 @@ void	center_grid(void)
 
 void	print_grid(char (*grid)[6][7])
 {
-	int	counter_1;
+	int	counter;
 
 	printf("\e[1;1H\e[2J");
 	center_grid();
-	counter_1 = 0;
-	while (counter_1 < 6)
+	counter = 0;
+	while (counter < 6)
 	{
 		printf_center("-----------------------------\n");
 		printf_center("| %c | %c | %c | %c | %c | %c | %c |\n",
-			(*grid)[counter_1][0], (*grid)[counter_1][1], (*grid)[counter_1][2],
-			(*grid)[counter_1][3], (*grid)[counter_1][4], (*grid)[counter_1][5],
-			(*grid)[counter_1][6]);
-		counter_1++;
+			(*grid)[counter][0], (*grid)[counter][1], (*grid)[counter][2],
+			(*grid)[counter][3], (*grid)[counter][4], (*grid)[counter][5],
+			(*grid)[counter][6]);
+		counter++;
 	}
 	printf_center("-----------------------------\n");
 	printf_center("  1   2   3   4   5   6   7  \n\n");
