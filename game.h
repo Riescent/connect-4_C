@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Vincent < >                                +#+  +:+       +#+        */
+/*   By: ****** <************************>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/29 21:50:40 by Vincent           #+#    #+#             */
-/*   Updated: 2022/07/30 00:32:59 by Vincent          ###   ########.fr       */
+/*   Created: 2022/07/29 21:50:40 by ******            #+#    #+#             */
+/*   Updated: 2022/07/30 12:34:11 by ******           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	play(char (*grid)[6][7], char player, int *last_y, int *last_x)
 		}
 		counter--;
 	}
-	printf("Column is full, try another.\n");
+	printf_center("Column is full, try another.\n");
 	play(grid, player, last_y, last_x);
 }
 
@@ -65,13 +65,12 @@ bool	is_game_over(char (*grid)[6][7], char player, int last_y, int last_x)
 {
 	if (player_won(grid, last_y, last_x))
 	{
-		printf("Player %c won the game!\n", player);
+		printf_center("Player %c won the game!\n", player);
 		exit(0);
 	}
 	if (is_draw(grid))
 	{
-
-		printf("Draw.\n");
+		printf_center("Draw\n");
 		exit(0);
 	}
 	return (false);
