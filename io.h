@@ -6,7 +6,7 @@
 /*   By: ****** <************************>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:34:14 by ******            #+#    #+#             */
-/*   Updated: 2022/07/30 12:34:16 by ******           ###   ########.fr       */
+/*   Updated: 2022/07/30 12:37:24 by ******           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	get_int(const char *print)
 	printf_center("%s", print);
 	if (!scanf("%i", &return_integer))
 	{
-		printf_center("An error occured, make sure you input an integer. ");
+		printf_center("An error occured, make sure you input an integer.\n");
 		while (return_integer != '\n' && return_integer != EOF)
 			return_integer = getchar();
 		return_integer = get_int(print);
